@@ -1,0 +1,10 @@
+<%= form_for @product do |f| %>
+	<%= render 'shared/error_messages', :object => f.object %>
+	<div class="field">
+		<br><%= f.label :product_name %><br />
+		<%= f.text_field :product_name %>
+		</div>
+	<div class="actions">
+		<%= f.submit "List product" %>
+		</div>
+<% end %>

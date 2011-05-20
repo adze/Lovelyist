@@ -10,6 +10,9 @@
   <%= @user.email %>
 </p>
 
-
+<p>
+  <b>Brand:</b>
+  <%= @user.brand_name %>
+</p>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

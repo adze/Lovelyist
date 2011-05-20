@@ -1,2 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% if signed_in? %>
+	<table class="front" summary="For signed-in users">
+		<tr>
+			<td class="main">
+		<h1 class="Products">List a new product for sale</h1>
+		<%= render 'shared/product_form'%>
+		</td>
+		<td class="sidebar round">
+			<%= render 'shared/user_info'%>
+			</td>
+			</tr>
+			<% else %>
+
+		<%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+		<%= link_to "Sign in now!", signin_path, :class => "signin_button round" %>
+<% end %>
