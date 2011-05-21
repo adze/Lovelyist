@@ -1,18 +1,25 @@
-<p id="notice"><%= notice %></p>
+<table class="profile" summary="Profile information">
+	<tr>
+		<td class="main">
+			<h1>
+				<%= @user.name %><br /><br />
+			  	<%= @user.brand_name %>
+			</h1>
 
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-<p>
-  <b>Brand:</b>
-  <%= @user.brand_name %>
-</p>
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+				<% unless @user.products.empty? %>
+					<table class="products" summary="User products">
+						<%= render @user.products %>
+					</table>
+					<%= will_paginate @user.products %>
+					<% end %>
+		</td>
+		<td class="sidebar round">
+			<strong>Name</strong> <%= @user.name %><br />
+					<strong>Email</strong> <%= @user.email %><br />
+			<strong>URL</strong> <%= link_to user_path(@user), @user %><br />
+			<strong>Products</strong> <%= @user.products.count %><br />
+			<%= link_to 'Edit', edit_user_path(@user) %> |
+			<%= link_to 'Back', users_path %>
+		</td>
+	</tr>
+</table>

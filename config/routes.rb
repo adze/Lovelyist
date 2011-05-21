@@ -1,8 +1,8 @@
 Lovelyist::Application.routes.draw do
   resources :users
-  resources :products, :only => [:create, :destroy]
+  resources :products
   resources :sessions, :only => [:new, :create, :destroy]
-
+  
   # get "users/new"
   match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'
@@ -10,6 +10,7 @@ Lovelyist::Application.routes.draw do
   match '/contact', :to => 'pages#contact'
   match '/about', :to => 'pages#about'
   match '/help', :to => 'pages#help'
+
   root :to => 'pages#home'
   get "sessions/new"
 
@@ -18,7 +19,7 @@ Lovelyist::Application.routes.draw do
   get "pages/contact"
 
   get "pages/about"
-
+ 
 
 
   # The priority is based upon order of creation:
